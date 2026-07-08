@@ -145,7 +145,7 @@ data <- data %>%
   mutate(CPUE = no.at.lngt / (HaulDur / 60),                             # calculate cpue per hour for each length class
          Length_mm = ifelse(LngtCode == "1", LngtClass * 10, LngtClass)) # add length class in mm
 
-write.csv(data, "outputs/TIDY_IBTS_DATA.csv")
+write.csv(data, "processed_data/TIDY_IBTS_DATA.csv")
 
 ## Add bioturbation to trawl data ----
 
@@ -180,11 +180,11 @@ head(biot_data)
 
 biot_final <- biot_data %>%
   mutate(
-    weight.g = a * (Length_mm / 10)^b,                   # Calculate individual weight in g
-    weight.cpue = weight.g * CPUE,                       # weight in grams per hour
-    weight.cpue.kg = weight.cpue/1000,                   # weight in kg per hour
+    weight.g = a * (Length_mm / 10)^b,                               # Calculate individual weight in g
+    weight.cpue = weight.g * CPUE,                                   # weight in grams per hour
+    weight.cpue.kg = weight.cpue/1000,                               # weight in kg per hour
     BPi = bioturbation.mode.score * frequency.score *sqrt(weight.g), # calculate BPi using indiv. weights
-    BPclass = BPi * CPUE # get BP per length class by multiplying BPi by CPUE
+    BPclass = BPi * CPUE                                             # get BP per length class by multiplying BPi by CPUE
   )
 
 head(biot_final)
@@ -375,7 +375,7 @@ hauls_clean <- hauls_clean %>%
 
 # Save updated haul-level dataset with substrate data
 # tidy data to use in temporal analysis
-write.csv(hauls_clean, "outputs/biot_haul_with_substrate.csv")
+write.csv(hauls_clean, "processed_data/haul_level_data_with_BPp_and_substrate.csv")
 
 ## Calculate BPc ----
 
@@ -670,7 +670,7 @@ pct_change <- ((end_val - start_val) / start_val) * 100 # 20.6%
     theme_convex()
 )
 
-ggsave(GAM_net_year_plot, filename = "outputs/GAM_net_year.png", width = 5, height = 4, dpi = 600)
+ggsave(GAM_net_year_plot, filename = "outputs/Figure_S1.png", width = 5, height = 4, dpi = 600)
 
 ### Diagnostics ----
 
@@ -688,7 +688,7 @@ gam.check(m_final2, k.rep = 1000)
 
 # increasing k only increases the wigglyness of sandy mud, all others remain unchanged
 
-plot_gam_check(m_final)
+plot_gam_check(m_final) # fairly good fit
 
 concurvity(m_final, full = TRUE)
 
@@ -715,9 +715,6 @@ testSpatialAutocorrelation(res_spatial, x = coords_unique$lon, y = coords_unique
 # no spatial autocorrelation after accounting for habitat and site-level random effects
 # Moran's I test: p = 0.62
 
-# Using gratia to see the raw data 'cloud' behind the smooth
-draw(m_final, residuals = TRUE)
-
 # table of model outputs:
 
 # Get parametric terms
@@ -727,8 +724,8 @@ parametric_table <- tidy(m_final, parametric = TRUE)
 smooth_table <- tidy(m_final, parametric = FALSE)
 
 # export to csv
-write.csv(parametric_table, "SI_Table_Model_Parametric.csv")
-write.csv(smooth_table, "SI_Table_Model_Smooths.csv")
+write.csv(parametric_table, "outputs/Table_GAMM_Parametric.csv")
+write.csv(smooth_table, "outputs/Table_GAMM_Smooths.csv")
 
 ### Visualise final GAMM ----
 
@@ -794,7 +791,7 @@ my_colors <- brewer.pal(11, "BrBG")[c(1, 2, 3, 4, 8, 9, 10, 11)]
 )
 
 # Save as Figure 2
-ggsave(GAM_substrate_plot, filename = "outputs/GAM_substrate_plot.png", width = 6, height = 7, dpi = 600)
+ggsave(GAM_substrate_plot, filename = "outputs/Figure_2.png", width = 6, height = 7, dpi = 600)
 
 # Site-level analysis ----
 
@@ -862,7 +859,7 @@ sites_sf <- sites_sf %>%
 )
 
 # Save as figure 3
-ggsave(slope_map_final, filename = "outputs/slope_map_final.png",
+ggsave(slope_map_final, filename = "outputs/Figure_3.png",
        width = 170, height = 140, units = "mm", dpi = 600)
 
 # Multivariate analysis ----
@@ -1041,7 +1038,7 @@ cap2_pct <- round(ve[2,2]*100, 1)
 )
 
 # Save as figure 4
-ggsave(dbRDA_plot_site, filename = "outputs/dbRDA_plot_site_final.png", 
+ggsave(dbRDA_plot_site, filename = "outputs/Figure_4.png", 
        width = 8, height = 5.5, units = "in", dpi = 600)
 
 # Functional contributions----
@@ -1071,14 +1068,6 @@ mode_contribution_global <- hauls_spp_sub %>%
 
 print(mode_contribution_global)
 
-# Overall
-ggplot(mode_contribution_global, aes(x = reorder(bioturbation.mode, Percentage), y = Percentage, fill = bioturbation.mode)) +
-  geom_col() +
-  coord_flip() +
-  theme_minimal() +
-  labs(x = "Bioturbation Mode", y = "Contribution to Total BPc (%)") +
-  guides(fill = "none")
-
 ## Mode area plot ----
 
 head(hauls_spp_sub)
@@ -1103,8 +1092,6 @@ mode_order <- mode_plot_data %>%
   summarize(avg = mean(Percentage)) %>%
   arrange(desc(avg)) %>%
   pull(bioturbation.mode)
-
-#mode_plot_data$bioturbation.mode <- factor(mode_plot_data$bioturbation.mode, levels = mode_order)
 
 mode_plot_data$bioturbation.mode <- factor(mode_plot_data$bioturbation.mode, 
                                            levels = c("Burrower", "Vertical excavator", "Nest-builder", 
@@ -1142,9 +1129,6 @@ mode_plot_data$bioturbation.mode <- factor(mode_plot_data$bioturbation.mode,
         linewidth = 0.6),
       panel.background = element_rect(fill = "white", colour = NA)) 
 )
-
-ggsave(trajectory_mode_plot, filename = "outputs/trajectory_mode_plot.png",
-       width = 8, height = 6, dpi = 600)
 
 ## Species contributions ----
 
@@ -1382,7 +1366,7 @@ area_panel <- p1 / p2 / p3 + plot_annotation(tag_levels = "A") + plot_layout(axe
 area_panel
 
 # Save as figure 5
-ggsave(area_panel, filename = "outputs/area_panel_updated.png", width = 8, height = 8, dpi = 600)
+ggsave(area_panel, filename = "outputs/Figure_5.png", width = 8, height = 8, dpi = 600)
 
 # Supplementary materials ----
 
@@ -1425,10 +1409,9 @@ BPp2 <- BPp %>%
 spp_table <- spp_table %>% 
   left_join(BPp2, by = "species")
 
-write.csv(spp_table, "species_summary_table.csv")
+write.csv(spp_table, "outputs/Table_S1.csv")
 
-
-# Heatmaps ----
+# Heatmaps (Figure S2) ----
 
 # for supplementary materials
 
@@ -1561,6 +1544,7 @@ heatmap_data$Category <- factor(heatmap_data$Category, levels = species_order)
       panel.background = element_rect(fill = "white", colour = NA))
 )
 
+# Combine: 
 abun_heatmap <- abun_heatmap + theme(plot.margin = unit(c(0.5, 0.5, 0.1, 0.5), units = , "cm"))
 
 biom_heatmap <- biom_heatmap + theme(plot.margin = unit(c(0.5, 0.1, 0.5, 0.5), units = , "cm"))
@@ -1569,8 +1553,8 @@ heatmaps <- abun_heatmap/biom_heatmap + plot_annotation(tag_levels = "A")
 #+ plot_layout(guides = "collect") 
 heatmaps
 
-# Save as Fig. S3
-ggsave(heatmaps, filename = "outputs/trajectory_heatmaps.png", width = 7, height = 8, dpi = 600)
+# Save as Fig. S2
+ggsave(heatmaps, filename = "outputs/Figure_S2.png", width = 7, height = 8, dpi = 600)
 
 # Landings plots ----
 
@@ -1580,15 +1564,15 @@ ggsave(heatmaps, filename = "outputs/trajectory_heatmaps.png", width = 7, height
 ## recent catch data 2006-2023
 
 # Load raw landings data
-landings1903_1949 <- read.csv("data/1903-1949_Landings.csv")
-landings1950_2010 <- read.csv("data/ICES_1950-2010.csv")
-landings2006_2023 <- read.csv("data/ICESCatchDataset2006-2023.csv")
+landings1903_1949 <- read.csv("raw_data/Landings_data/1903-1949_Landings.csv")
+landings1950_2010 <- read.csv("raw_data/Landings_data/ICES_1950-2010.csv")
+landings2006_2023 <- read.csv("raw_data/Landings_data/ICESCatchDataset2006-2023.csv")
 
 ## Landings data tidying ----
 
 ### 1903-1949 ----
 
-head(landings1903_1949, 10)# already in long format
+head(landings1903_1949, 10) # already in long format
 str(landings1903_1949)
 
 unique(landings1903_1949$FAO_Area)
@@ -2147,7 +2131,7 @@ land_2008_v2 <- landings_all %>%
 # no more duplicates
 
 ## Save full landings data:
-write.csv(landings_all, "data/landings_1903_2023.csv")
+write.csv(landings_all, "processed_data/landings_1903_2023.csv")
 
 ### Landings plots ----
 
@@ -2227,93 +2211,17 @@ cols_9_cb <- c(
     )
 )
 
-ggsave(landings_plot, filename = "outputs/landings_area_plot_ext.png",
-       width = 10, height = 6, dpi = 600)
-
-# Look at scallops split:
-scallops <- landings_plot_df %>% 
-  filter(Category == "Scallops")
-
-scallops$Species <- factor(scallops$Species, levels = c("Queen scallop", "Great Atlantic scallop",
-                                                        "Scallops nei"),
-                           labels = c("Queen scallop", "King scallop", "Scallops nei"))
-
-cols3 <- c(
-  "#ffd670",
-  "#f4a261",
-  "#e76f51")
-
-(landings_scallops <- ggplot(scallops, aes(x = Year, y = Landings, fill = Species)) +
-    geom_area() +
-    geom_vline(xintercept = 1988, colour = "grey", 
-               linetype = "dashed", size = 1) +
-    labs(y = "Landings (tonnes)\n",
-         fill = "") +
-    scale_y_continuous(expand = expand_scale(mult = c(0, 0.1))) +
-    scale_fill_manual(values = cols3) +
-    theme_convex() +
-    theme(#legend.position = "right",
-      legend.position = c(0.2, 0.9),
-      legend.text = element_text(size = 10))
-)
-
-# queen scallops dominate, but catches have declined in last few years
-
-ggsave(landings_scallops, filename = "outputs/landings_scallops.png",
-       width = 9, height = 5, dpi = 600)
-
-# Look at sharks and rays split
-rays <- landings_plot_df %>% 
-  filter(Category == "Skates and rays")
-
-cols_22 <- c(
-  "#1B9E77",
-  "#D95F02",
-  "#7570B3",
-  "#E7298A",
-  "#66A61E",
-  "#E6AB02",
-  "#A6761D",
-  "#666666",
-  "#1F78B4",
-  "#B2DF8A",
-  "#33A02C",
-  "#FB9A99",
-  "#E31A1C",
-  "#FDBF6F",
-  "#FF7F00",
-  "#CAB2D6",
-  "#6A3D9A",
-  "#FFFF99",
-  "#B15928",
-  "#8DD3C7",
-  "#FFFFB3",
-  "#BEBADA"
-)
-
-(landings_rays <- ggplot(rays, aes(x = Year, y = Landings, fill = Species)) +
-    geom_area() +
-    geom_vline(xintercept = 1988, colour = "grey", 
-               linetype = "dashed", size = 1) +
-    labs(y = "Landings (tonnes)\n",
-         fill = "") +
-    scale_y_continuous(expand = expand_scale(mult = c(0, 0.1))) +
-    scale_fill_manual(values = cols_22) +
-    theme_convex() +
-    theme(legend.position = "right",
-          legend.text = element_text(size = 10))
-)
-
-# Historically, catches of thornback ray were recorded more generally under ‘skates and rays’; 
-# however since 2009 species-specific recording has been compulsory.
-
-ggsave(landings_rays, filename = "outputs/landings_rays.png",
-       width = 11, height = 5, dpi = 600)
 
 #### Landings by mode ----
 
+# Subset landings dataset to just bioturbating species
+
+biot_landings2 <- landings_all %>%
+  inner_join(biot, by = c("Latin.name" = "Species"))
+
+unique(biot_landings2$Species)
+
 # Plot landings of all bioturbating species (split into bioturbation modes)
-# but should probably also include skates and rays braoder category?
 
 mode_landings <- biot_landings2 %>% 
   group_by(Year, Bioturbation.mode) %>% 
@@ -2340,11 +2248,7 @@ mode_landings$Bioturbation.mode <- factor(mode_landings$Bioturbation.mode, level
     )
 )
 
-ggsave(landings_mode_plot, filename = "outputs/landings_mode_plot_.png",
-       width = 10, height = 5, dpi = 600)
-
-# Combine 2 landings plots
-
+# Combine 2 landings plots for Figure S3
 
 landings_plots <- plot_grid(landings_plot, landings_mode_plot, 
                             labels = "AUTO",
@@ -2352,11 +2256,4 @@ landings_plots <- plot_grid(landings_plot, landings_mode_plot,
                             align = "hv")
 landings_plots
 
-ggsave(landings_plots, filename = "outputs/landings_plots.png", width = 9, height = 9)
-
-landings_combined <-
-  landings_plot + landings_mode_plot +
-  #plot_layout(heights = c(2, 1))) +
-  #plot_layout(widths = c(2, 1)) +
-  plot_annotation(tag_levels = "A")
-
+ggsave(landings_plots, filename = "outputs/Figure_S3.png", width = 9, height = 9)
