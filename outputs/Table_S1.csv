@@ -1,0 +1,94 @@
+"","species","Common.name","Family","Bioturbation.mode","n","B","A","BPi","BPp"
+"1","Agonus cataphractus","Hooknose","Agonidae","Burrower",72,10.4322634782931,7.08058456862692,76.368423123949,1817.76239572646
+"2","Ammodytes marinus","Launce","Ammodytidae","Burrower",8,2.51944970939813,3.91538461538462,28.0049366056601,201.076480851974
+"3","Ammodytes tobianus","Lesser sandeel","Ammodytidae","Burrower",27,2.7876071741527,5.14700460829493,26.4081422177396,212.163056246091
+"4","Anguilla anguilla","European eel","Anguillidae","Burrower",2,303.547195053006,2,435.519107882586,871.038215765171
+"5","Argentina sphyraena","Lesser silver smelt","Argentinidae","Vertical excavator",4,23.1468982355284,2,60.1004018908068,120.200803781614
+"6","Arnoglossus imperialis","Imperial scaldfish","Bothidae","Sediment sifter",2,24.7980872248532,9.2,22.4435260921296,400.337027551568
+"7","Arnoglossus laterna","Scaldfish","Bothidae","Sediment sifter",66,11.73625418701,12.9973814844067,16.2716471192653,1023.46214005034
+"8","Artediellus atlanticus","Atlantic hookear sculpin","Cottidae","Vertical excavator",1,17.8217868806329,2,84.4317165066136,168.863433013227
+"9","Balistes capriscus","Grey triggerfish","Balistidae","Nest-builder",3,656.924044160028,2,229.091947692197,458.183895384394
+"10","Blennius ocellaris","Butterfly blenny","Blenniidae","Sediment sifter",25,11.7794338576091,3.42039624668185,13.3115889477636,97.8256044668885
+"11","Buglossidium luteum","Solenette","Soleidae","Lateral excavator",67,9.35579599873482,27.8073250695649,28.7480622218605,3918.86043132961
+"12","Callionymus lyra","Dragonet","Callionymidae","Vertical excavator",74,30.5213849994103,9.44837341118725,104.426754773054,7835.28350234946
+"13","Callionymus maculatus","Spotted dragonet","Callionymidae","Vertical excavator",38,5.71214850845301,4.30244363064652,46.0703146129486,425.895567666621
+"14","Callionymus reticulatus","Reticulated dragonet","Callionymidae","Sediment sifter",43,3.02952542712277,3.43084677438194,8.39231202148077,53.1895189424623
+"15","Capros aper","Boarfish","Caproidae","Vertical excavator",1,31.6602806467733,2,67.5209627681312,135.041925536262
+"16","Centrolabrus exoletus","Rock cook","Labridae","Nest-builder",4,8.17213050679585,2.19489795918367,15.3343504237931,53.4194735317403
+"17","Cepola macrophthalma","Red bandfish","Cepolidae","Burrower",4,51.1442631216953,2,169.56155219139,626.073423475901
+"18","Chelidonichthys cuculus","Red gurnard","Triglidae","Sediment sifter",43,118.20087647831,4.09319687801106,41.5040207347301,805.81836986456
+"19","Chelidonichthys lastoviza","Streaked gurnard","Triglidae","Sediment sifter",8,161.061865507264,2.78260869565217,35.8635157024706,114.669701257414
+"20","Chelidonichthys lucerna","Tub gurnard","Triglidae","Sediment sifter",71,169.667059260051,3.04365547295265,60.4742270610828,551.954471227139
+"21","Chirolophis ascanii","Yarrell's blenny","Stichaeidae","Vertical excavator",3,12.0828892117707,2,56.6439498529107,113.287899705821
+"22","Ciliata mustela","Five-bearded rockling","Gaidropsaridae","Sediment sifter",19,8.11052220979207,3.10069286212509,8.72080047516164,31.5462179537552
+"23","Ciliata septentrionalis","Northern rockling","Gaidropsaridae","Vertical excavator",9,3.91682346321907,2.41176470588235,29.2502661761827,104.233664127216
+"24","Ctenolabrus rupestris","Goldsinny wrasse","Labridae","Sediment sifter",20,20.8559463928585,2.79878774579235,17.5799534562117,94.3806793669839
+"25","Cyclopterus lumpus","Lumpfish","Cyclopteridae","Vertical excavator",28,8.67595742505997,2.52461799660441,32.8103455960783,91.3855492143847
+"26","Dicentrarchus labrax","European seabass","Moronidae","Vertical excavator",5,669.052754191282,2.76923076923077,304.446643249245,805.55840618698
+"27","Diplecogaster bimaculata","Two-spotted clingfish","Gobiesocidae","Sediment sifter",14,0.189297098404145,7.46666666666667,1.63523673171223,16.3335192309121
+"28","Echiichthys vipera","Lesser weever","Trachinidae","Lateral excavator",39,16.9879575640013,13.951886478323,39.7987239681846,2176.27151840516
+"29","Enchelyopus cimbrius","Four-bearded rockling","Gaidropsaridae","Vertical excavator",15,16.1141371390772,2.40816326530612,69.9435738012699,230.105055473899
+"30","Entelurus aequoreus","Snake pipefish","Syngnathidae","Sediment sifter",2,22.3199518165825,3.02040816326531,13.6820505750552,116.660950072113
+"31","Eutrigla gurnardus","Grey gurnard","Triglidae","Sediment sifter",73,38.3835035843777,6.31795028107202,21.9100526626607,729.948426922125
+"32","Gadus morhua","Atlantic cod","Gadidae","Vertical excavator",69,214.327100428514,3.31549836119887,201.656244969341,1600.69688710608
+"33","Gaidropsarus mediterraneus","Shore rockling","Gaidropsaridae","Vertical excavator",1,1.0395416782731,2,16.3132666758658,32.6265333517316
+"34","Gaidropsarus vulgaris","Three-bearded rockling","Gaidropsaridae","Sediment sifter",16,112.729347960393,2.2476485070387,36.9659131933278,101.44149010587
+"35","Galeorhinus galeus","Tope shark","Triakidae","Vertical excavator",5,524.168227166632,2,274.39379539776,548.78759079552
+"36","Gasterosteus aculeatus","Three-spined stickleback","Gasterosteidae","Nest-builder",3,0.942780003605087,3.33333333333333,5.7428040131527,20.9904724288134
+"37","Glyptocephalus cynoglossus","Witch","Pleuronectidae","Lateral excavator",25,104.211271311701,6.0174243042142,75.9623670661953,2559.07373910962
+"38","Gobius niger","Black goby","Gobiidae","Vertical excavator",5,10.4126747963587,2.43228704525288,49.3476097062278,179.874805933025
+"39","Gobius paganellus","Rock goby","Gobiidae","Vertical excavator",4,8.8326686311319,2.25,23.5567071885338,60.2723616101492
+"40","Hippoglossoides platessoides","Long rough dab","Pleuronectidae","Sediment sifter",14,23.2914857340993,6.13143746462932,22.2850170541126,462.733519950001
+"41","Hyperoplus immaculatus","Corbin's sandeel","Ammodytidae","Burrower",13,5.50218628295057,3.74603174603175,38.4650211033945,213.710881155151
+"42","Hyperoplus lanceolatus","Greater sandeel","Ammodytidae","Burrower",23,35.6062621440122,2.822799520671,103.502885995553,339.724953471906
+"43","Labrus bergylta","Ballan wrasse","Labridae","Nest-builder",7,167.400775663443,2.51417769376181,94.6129044858858,342.895383060299
+"44","Labrus mixtus","Cuckoo wrasse","Labridae","Nest-builder",5,176.882553017246,2,109.771764183634,329.315292550903
+"45","Lepidorhombus whiffiagonis","Megrim","Scophthalmidae","Sediment sifter",6,184.817076245822,2.21052631578947,60.0891552466999,188.514590035897
+"46","Lesueurigobius friesii","Friess goby","Gobiidae","Burrower",8,3.69870010292206,3.025,45.125155897863,198.862959640623
+"47","Limanda limanda","Common dab","Pleuronectidae","Lateral excavator",72,56.636457289388,23.7043143744081,66.8960690489492,16922.0755178043
+"48","Liparis liparis","Striped seasnail","Liparidae","Vertical excavator",6,0.332581812373958,2.8,8.84937182566272,27.1461615504025
+"49","Liparis montagui","Montagus seasnail","Liparidae","Sediment sifter",5,0.763044851608785,3.33333333333333,2.3296578882697,8.47072265935534
+"50","Lophius piscatorius","Angler","Lophiidae","Lateral excavator",68,716.307732897227,2.31457206725283,223.093640696934,839.741727253804
+"51","Melanogrammus aeglefinus","Haddock","Gadidae","Vertical excavator",43,93.9811712102187,5.82751173156761,128.775414354389,1962.49856999424
+"52","Merlangius merlangus","Whiting","Gadidae","Vertical excavator",74,58.6068779680544,8.46264790045442,81.3852626201181,3937.40345861071
+"53","Micrenophrys lilljeborgii","Norway bullhead","Cottidae","Sediment sifter",1,0.219999185733199,2,1.40712212391064,2.81424424782128
+"54","Microchirus variegatus","Thickback sole","Soleidae","Lateral excavator",60,24.0538618339231,6.53206903829243,46.5621209512352,1336.0411508501
+"55","Microstomus kitt","Lemon sole","Pleuronectidae","Lateral excavator",52,104.305812853143,3.27945431165879,95.3903074178409,1133.23733700256
+"56","Molva molva","Common ling","Lotidae","Vertical excavator",17,459.483159975321,2.38823529411765,202.948872121435,564.74402059201
+"57","Mullus surmuletus","Striped red mullet","Mullidae","Sediment sifter",22,69.3192972948307,4.59245413023976,31.0564327178008,204.465701544124
+"58","Mustelus asterias","Starry smoothhound","Triakidae","Vertical excavator",54,329.792851264147,2.24145818068409,249.380448332378,1284.26371206695
+"59","Mustelus mustelus","Smoothhound","Triakidae","Vertical excavator",5,770.186995564477,1.84489795918367,276.264742067512,527.847718231845
+"60","Myoxocephalus scorpioides","Arctic sculpin","Cottidae","Sediment sifter",11,45.5531685742683,3.51422924901186,19.3314575325376,262.626487018282
+"61","Myoxocephalus scorpius","Shorthorn sculpin","Cottidae","Sediment sifter",21,74.6396734613838,3.60989589459911,16.121909938247,198.371998098027
+"62","Parablennius gattorugine","Tompot blenny","Blenniidae","Sediment sifter",1,17.6313495793754,2,16.7958802469536,33.5917604939072
+"63","Pegusa lascaris","Sand sole","Soleidae","Lateral excavator",9,113.710015149022,2.37820699708455,100.989496172504,515.70593548965
+"64","Pholis gunnellus","Butterfish (gunnel)","Pholidae","Vertical excavator",23,6.44827343368789,2.66668755856938,36.846261484034,185.40043924827
+"65","Platichthys flesus","Flounder","Pleuronectidae","Lateral excavator",24,266.157500606036,4.50854523627633,157.964113383723,2117.4148726939
+"66","Pleuronectes platessa","Plaice","Pleuronectidae","Lateral excavator",72,134.716884520334,12.5859681903785,105.975666179721,20515.5341189083
+"67","Pollachius pollachius","Pollack","Gadidae","Sediment sifter",5,2008.3905554685,2,128.358126191249,256.716252382498
+"68","Raja brachyura","Blonde ray","Rajidae","Lateral excavator",34,538.713873551279,2.43713348815209,176.705526536814,1184.08198240156
+"69","Raja clavata","Thornback ray","Rajidae","Lateral excavator",73,552.889787312501,2.79222674782126,199.558691916879,3105.62859788098
+"70","Raja microocellata","Small-eyed ray","Rajidae","Lateral excavator",7,1236.70108189135,2.00689655172414,285.562442909432,571.630705408112
+"71","Raja montagui","Spotted ray","Rajidae","Lateral excavator",69,263.812466322828,2.99929573107691,140.033371417369,1830.38722765818
+"72","Raja undulata","Undulate ray","Rajidae","Lateral excavator",2,108.297371462809,2,94.341428932617,188.682857865234
+"73","Raniceps raninus","Tadpole fish","Ranicipitidae","Vertical excavator",1,34.4624837658675,2,117.409511992628,234.819023985256
+"74","Scophthalmus maximus","Turbot","Scophthalmidae","Lateral excavator",46,616.402753690794,2.17500913408842,229.5750816019,542.29764838979
+"75","Scophthalmus rhombus","Brill","Scophthalmidae","Sediment sifter",57,393.176192701166,2.34412692477778,92.8801089533575,327.614128348074
+"76","Scyliorhinus canicula","Lesser spotted dogfish/smallspotted catshark","Scyliorhinidae","Vertical excavator",74,491.875750684385,3.41679836978116,340.930135583985,9996.74353406399
+"77","Scyliorhinus stellaris","Nurse hound","Scyliorhinidae","Vertical excavator",49,1865.6722038024,2.16841298709647,619.25342351019,2045.25322155553
+"78","Solea solea","Sole ","Soleidae","Lateral excavator",73,151.899559956145,6.17633456433892,116.73465787507,4728.06487367911
+"79","Spinachia spinachia","Sea stickleback","Gasterosteidae","Nest-builder",1,10.0199951958895,4,18.7697675606925,225.237210728309
+"80","Spondyliosoma cantharus","Black seabream","Sparidae","Nest-builder",5,24.2216626582147,4.67138692211578,29.0621442818468,171.843330179829
+"81","Squalus acanthias","Piked dogfish","Squalidae","Vertical excavator",4,1763.26399113206,2.5,323.360607653215,776.622338872349
+"82","Symphodus bailloni","Baillon's wrasse","Labridae","Nest-builder",2,8.47816399203889,4,14.2343352736681,141.851698300975
+"83","Symphodus melops","Corkwing wrasse","Labridae","Nest-builder",4,8.80540233801046,4.2,22.0199678519653,158.103905045938
+"84","Syngnathus acus","Greater pipefish","Syngnathidae","Sediment sifter",48,17.5409003284282,6.61607326928394,10.5327083087676,97.6203921977667
+"85","Syngnathus typhle","Broadnosed pipefish","Syngnathidae","Sediment sifter",1,7.73359412603326,2,5.56186807683651,11.123736153673
+"86","Taurulus bubalis","Longspined bullhead","Cottidae","Vertical excavator",18,31.2581812548696,2.80131124192244,58.9230067107233,343.297790177634
+"87","Trachinus draco","Greater weever","Trachinidae","Lateral excavator",7,180.248749265324,2.20293187697614,128.209974963722,642.021206309048
+"88","Trisopterus luscus","Bib","Gadidae","Vertical excavator",62,51.9088761915122,5.53364628340768,92.5749206154211,1301.64609001057
+"89","Trisopterus minutus","Poor cod","Gadidae","Vertical excavator",74,27.983553124634,16.0676563523602,74.9757040571646,6765.95674879986
+"90","Zeugopterus punctatus","Topknot ","Scophthalmidae","Sediment sifter",16,34.9985162308216,2.51042998721228,11.184925493893,43.7177911777057
+"91","Zeugopterus regius","Eckstroems topknot","Scophthalmidae","Sediment sifter",8,20.3287379625214,2.05882352941176,8.50098440307621,17.7200810634597
+"92","Zeus faber","John dory","Zeidae","Sediment sifter",42,115.907011431164,2.34395735410869,18.160100614956,55.8272978336808
+"93","Zoarces viviparus","Eelpout","Zoarcidae","Sediment sifter",1,12.2199051312414,2,10.4870942677737,20.9741885355474
