@@ -36,24 +36,24 @@ library(RColorBrewer)
 ## HH: contains metadata, incl. haul duration
 ## HL: contains biological info
 
-hl <- read.csv("data/DATRAS_HL_all_years.csv", header = T)
-hh <- read.csv("data/DATRAS_HH_all_years.csv", header = T)
+hl <- read.csv("raw_data/IBTS_data/DATRAS_HL_all_years.csv", header = T)
+hh <- read.csv("raw_data/IBTS_data/DATRAS_HH_all_years.csv", header = T)
 
 # Bioturbation data
 
 ## UK fish species bioturbation classification (described in Fischer et al., 2025 and 
 ## downloaded from: doi: 10.17632/t8kg43f8kn.1 
-biot <- read.csv("data/bioturbation.csv", header = T)
+biot <- read.csv("raw_data/bioturbation.csv", header = T)
 
 # EMODnet substrate data
 # based on a hierarchy of seven Folk classes from EMODnet Geology (Kaskela et al., 2019; EMODnet, 2025). 
-substrate <- st_read("data/EMOD_data/seabed_substrate_250k.shp")
+substrate <- st_read("raw_data/seabed_substrate_250k.shp")
 
 ## ICES stat recs shapefile
-stat_recs <- read_sf("data/ICES_rectangles/ICES_Statistical_Rectangles_Eco.shp")
+stat_recs <- read_sf("raw_data/ICES_rectangles/ICES_Statistical_Rectangles_Eco.shp")
 
 # Load species code file
-spp <- read.csv("data/landings_species.csv")
+spp <- read.csv("raw_data/landings_species.csv")
 
 # Custom plot theme ----
 
@@ -145,7 +145,7 @@ data <- data %>%
   mutate(CPUE = no.at.lngt / (HaulDur / 60),                             # calculate cpue per hour for each length class
          Length_mm = ifelse(LngtCode == "1", LngtClass * 10, LngtClass)) # add length class in mm
 
-write.csv(data, "data/ALL_DATA_TIDY.csv")
+write.csv(data, "outputs/TIDY_IBTS_DATA.csv")
 
 ## Add bioturbation to trawl data ----
 
@@ -202,7 +202,7 @@ length(unique(biot_final$Site))
 
 ## Calculate BPp ----
 
-# Calculate opulation-level BP per species × haul by summing across length classes
+# Calculate population-level BP per species × haul by summing across length classes
 biot_haul <- biot_final %>%
   group_by(ID, Year, StNo, HaulNo, species) %>%
   summarise(
@@ -268,8 +268,6 @@ biot_haul <- biot_haul %>%
                    "Gaidropsarus mediterraneus", "Gaidropsarus vulgaris") ~ "Small benthic",
     TRUE ~ "Other"
   ))
-
-#write.csv(biot_haul, "data/BPp_all.csv")
 
 ## Add substrate data ----
 
@@ -376,7 +374,8 @@ hauls_clean <- hauls_clean %>%
   left_join(coords, by = "ID")
 
 # Save updated haul-level dataset with substrate data
-#write.csv(hauls_clean, "data/biot_haul_with_substrate.csv")
+# tidy data to use in temporal analysis
+write.csv(hauls_clean, "outputs/biot_haul_with_substrate.csv")
 
 ## Calculate BPc ----
 
@@ -468,9 +467,11 @@ hauls_subset <- hauls_com  %>%
 
 unique(hauls_subset$Site) # 74 sites
 
-# log10 transform BPc
+# log10 transform BPc and scale depth
 hauls_subset <- hauls_subset %>% 
-  mutate(Log10_BPc = log10(BPc))
+  ungroup() %>% 
+  mutate(Log10_BPc = log10(BPc),
+         Depth_s = as.numeric(scale(Depth)))
 
 ## Check outliers ----
 
