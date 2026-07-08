@@ -1,11 +1,11 @@
 # Irish Sea Fish Bioturbation
 
-This repository contains code and data necessary to replicate data analysis and figures in the manuscript *"Functional diversity buffers multi-decadal shifts in fish-mediated bioturbation within a heavily exploited sea"*.
+This repository contains code and data necessary to replicate data analysis and figures in the manuscript *"Functional diversity buffers multi-decadal shifts in fish-mediated bioturbation within a heavily exploited sea"* by Mara Fischer, Julie Hawkins, Ceri Lewis, and Callum Roberts.
 
 ## Navigation
 
 - [Code](https://github.com/mfischer-edi/Irish-Sea-bioturbation/tree/main/code): Contains script to run data analysis and plot figures
-- [Data](https://github.com/mfischer-edi/Irish-Sea-bioturbation/tree/main/data): Contains data necessary to run the script
+- [Raw data](https://github.com/mfischer-edi/Irish-Sea-bioturbation/tree/main/raw_data): Contains data necessary to run the script
 - [Outputs](https://github.com/mfischer-edi/Irish-Sea-bioturbation/tree/main/outputs): Contains outputs from the script
 
 ## Requirements
